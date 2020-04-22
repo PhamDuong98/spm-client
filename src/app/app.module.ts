@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from './navbar/navbar.module';
+import { ErrorModule } from './error/error.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    NavbarModule,
+    ErrorModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule
