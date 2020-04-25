@@ -1,12 +1,69 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+<link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 <div class="container">
-    <mat-card class="card">
-        <h1>Phiếu bán hàng</h1>
-        <hr>
-        <mat-form-field>
-            <mat-label>Mã sản phẩm</mat-label>
-            <input matInput placeholder="Mã sản phẩm">
-        </mat-form-field>
-        <button mat-raised-button><i class="fas fa-search"></i></button>
-        <button mat-raised-button><i class="fas fa-eraser"></i></button>
-    </mat-card>
+    <div class="row">
+        <div class="col-lg-10 col-md-10 ml-auto mr-auto">
+            <h1>Phiếu bán hàng</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 col-md-10 ml-auto mr-auto">
+            <div class="row">
+                <input class="form-control" type="text" id="search" placeholder="Mã sản phẩm" />
+                <button class="btn btn-primary" type="button" value="search"><i class="fa fa-search"
+                        aria-hidden="true"></i></button>
+                <button class="btn btn-primary" type="reset" value="reset"><i class="fa fa-refresh"
+                        aria-hidden="true"></i></button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Đơn vị</th>
+                            <th>Số lượng</th>
+                            <th class="text-right">Đơn giá</th>
+                            <th class="text-right"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-right"></td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm"
+                                    data-original-title="" title="">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger btn-just-icon btn-sm"
+                                    data-original-title="" title="">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <form action="" method="post">
+                        <h3>Tổng tiền: 71000 VNĐ</h3>
+                        <button class="btn btn-outline-success" type="submit" value="checkout">Lưu hóa đơn</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
