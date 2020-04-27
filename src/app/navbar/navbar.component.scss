@@ -1,7 +1,8 @@
-.dropdown-menu {
-    margin-right: 20px;
+.spacer {
+    flex: 1 1 auto;
 }
 
-.navbar-nav .dropdown-menu {
-    left: -100px;
+.toolbar-content:hover {
+    text-decoration: none;
+    color: white;
 }
