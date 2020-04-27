@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { NavbarService } from './navbar/navbar.service';
 
 const routes: Routes = [
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  // { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
 
   NavbarService.childRoutes([
     { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-    { path: 'list', loadChildren: () => import('./list-product/list-product.module').then(m => m.ListProductModule) },
-    { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+    { path: 'list-product', loadChildren: () => import('./list-product/list-product.module').then(m => m.ListProductModule) },
+    { path: 'list-order', loadChildren: () => import('./list-order/list-order.module').then(m => m.ListOrderModule) },
   ]),
 
   // Fallback when no prior route is matched

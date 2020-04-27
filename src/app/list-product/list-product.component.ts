@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ListProductComponent implements OnInit {
 
-  displayedColumns: string[] = ['No', 'barcode', 'name', 'importPrice', 'exportPrice', 'unit', 'category'];
+  displayedColumns: string[] = ['No', 'barcode', 'name', 'importPrice', 'exportPrice', 'unit', 'category', 'action'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

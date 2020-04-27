@@ -16,7 +16,7 @@ export class NavbarService {
       path: '',
       component: NavbarComponent,
       children: routes,
-      canActivateChild: [AuthenticationGuard],
+      // canActivateChild: [AuthenticationGuard],
     };
   }
 }
