@@ -44,56 +44,46 @@
                 </div>
             </div>
 
-            <div class="mat-elevation-z8">
-                <table mat-table [dataSource]="dataSource">
-
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="No">
-                        <th mat-header-cell *matHeaderCellDef> No. </th>
-                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                    </ng-container>
-
-                    <!-- Barcode Column -->
-                    <ng-container matColumnDef="barcode">
-                        <th mat-header-cell *matHeaderCellDef> Mã vạch </th>
-                        <td mat-cell *matCellDef="let element"> {{element.barcode}} </td>
-                    </ng-container>
-
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Tên sản phẩm </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-
-                    <!-- Import price Column -->
-                    <ng-container matColumnDef="importPrice">
-                        <th mat-header-cell *matHeaderCellDef> Giá nhập </th>
-                        <td mat-cell *matCellDef="let element"> {{element.importPrice}} </td>
-                    </ng-container>
-
-                    <!-- Export price Column -->
-                    <ng-container matColumnDef="exportPrice">
-                        <th mat-header-cell *matHeaderCellDef> Giá bán </th>
-                        <td mat-cell *matCellDef="let element"> {{element.exportPrice}} </td>
-                    </ng-container>
-
-                    <!-- Unit Column -->
-                    <ng-container matColumnDef="unit">
-                        <th mat-header-cell *matHeaderCellDef> Đơn vị </th>
-                        <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
-                    </ng-container>
-
-                    <!-- Category Column -->
-                    <ng-container matColumnDef="category">
-                        <th mat-header-cell *matHeaderCellDef> Loại sản phẩm </th>
-                        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-                    </ng-container>
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <div *ngIf="length > 0">
+                <mat-paginator #paginatorTop [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex"
+                    [pageSizeOptions]="pageSizeOptions" showFirstLastButtons
+                    (page)="onPageEvent($event)">
+                </mat-paginator>
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Mã vạch</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá nhập</th>
+                            <th>Giá bán</th>
+                            <th>Đơn vị</th>
+                            <th>Loại sản phẩm</th>
+                            <th>Trạng thái</th>
+                            <th>Cập nhật lần cuối</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let prod of products; let i = index">
+                            <td class="align-middle">{{i+1+pageIndex*pageSize}}</td>
+                            <td class="align-middle">{{prod.barcode}}</td>
+                            <td class="align-middle">{{prod.name}}</td>
+                            <td class="align-middle">{{prod.importPrice}}</td>
+                            <td class="align-middle">{{prod.exportPrice}}</td>
+                            <td class="align-middle">{{prod.unitName}}</td>
+                            <td class="align-middle">{{prod.categoryName}}</td>
+                            <td class="align-middle">{{prod.status}}</td>
+                            <td class="align-middle">{{prod.lastUpdate}}</td>
+                            <td class="align-middle"></td>
+                            <td class="align-middle"></td>
+                        </tr>
+                    </tbody>
                 </table>
-
-                <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+            </div>
+            <div *ngIf="length == 0">
+                Không có dữ liệu để hiển thị
             </div>
         </div>
     </div>
