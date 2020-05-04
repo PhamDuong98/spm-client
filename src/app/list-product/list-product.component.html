@@ -5,7 +5,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-<div class="container">
+<div>
     <div class="row">
         <div class="col-lg-10 col-md-10 ml-auto mr-auto">
             <h1>Danh sách sản phẩm</h1>
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div *ngIf="length > 0">
+            <div *ngIf="products.length > 0">
                 <mat-paginator #paginatorTop [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex"
                     [pageSizeOptions]="pageSizeOptions" showFirstLastButtons
                     (page)="onPageEvent($event)">
@@ -82,7 +82,7 @@
                     </tbody>
                 </table>
             </div>
-            <div *ngIf="length == 0">
+            <div *ngIf="products.length == 0">
                 Không có dữ liệu để hiển thị
             </div>
         </div>
