@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { RestService } from '../core/service/rest.service';
 
 @Component({
   selector: 'app-list-product',
@@ -11,6 +12,10 @@ export class ListProductComponent implements OnInit {
   pageIndex = 0;
   pageSizeOptions: number[] = [25, 50, 100, 200];
   products: any[] = new Array();
+
+  constructor(
+    private restService: RestService
+  ) { }
 
   ngOnInit() {
     this.requestSearch(this.pageSize, this.pageIndex);
