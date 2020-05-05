@@ -3,12 +3,12 @@
     <a class="toolbar-content" mat-button routerLink="/">
         <h6>Phiếu bán lẻ</h6>
     </a>
-    <a class="toolbar-content" mat-button routerLink="/list-product">
+    <a class="toolbar-content" mat-button routerLink="/list">
         <h6>Danh sách sản phẩm</h6>
     </a>
     <span class="spacer"></span>
     <button mat-button [matMenuTriggerFor]="menuUser">
-        <h6><i class="fas fa-user-circle"></i> {{ currentFullName }} </h6>
+        <h6><i class="fas fa-user-circle"></i> {{ currentFullName }}</h6>
     </button>
     <mat-menu #menuUser="matMenu">
         <button mat-menu-item (click)="logout()">
