@@ -5,6 +5,9 @@ import {ListProductComponent} from './list-product.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddProductDialogComponent } from './add-product-dialog/add-product-dialog.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [ListProductComponent, AddProductDialogComponent],
@@ -12,7 +15,10 @@ import { AddProductDialogComponent } from './add-product-dialog/add-product-dial
     CommonModule,
     ListProductRoutingModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
   ]
 })
 export class ListProductModule { }
