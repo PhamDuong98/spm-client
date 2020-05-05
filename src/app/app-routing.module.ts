@@ -7,8 +7,7 @@ const routes: Routes = [
 
   NavbarService.childRoutes([
     { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-    { path: 'list', loadChildren: () => import('./list-product/list-product.module').then(m => m.ListProductModule) },
-    { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+    { path: 'list-product', loadChildren: () => import('./list-product/list-product.module').then(m => m.ListProductModule) },
   ]),
 
   // Fallback when no prior route is matched

@@ -1,10 +1,7 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
 <link rel="stylesheet"
     href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
     integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 <div>
     <div class="row">
         <div class="col-lg-10 col-md-10 ml-auto mr-auto">
@@ -25,23 +22,11 @@
     <div class="row">
         <div class="col-lg-10 col-md-10 ml-auto mr-auto">
             <div class="row">
-                <input class="form-control" type="text" id="search" placeholder="Mã sản phẩm" />
-                <button class="btn btn-primary" type="button" value="search"><i class="fa fa-search"
+                <input class="form-control" type="text" id="search" placeholder="Mã sản phẩm" #search/>
+                <button class="btn btn-primary" type="button" value="search" (click)="searchProduct()"><i class="fa fa-search"
                         aria-hidden="true"></i></button>
-                <button class="btn btn-primary" type="reset" value="reset"><i class="fa fa-refresh"
+                <button class="btn btn-primary" type="reset" value="reset" (click)="search.value=''"><i class="fa fa-refresh"
                         aria-hidden="true"></i></button>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="status" value="1" checked>
-                    <label class="form-check-label" for="Active">
-                        Đang kinh doanh
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="status" value="0">
-                    <label class="form-check-label" for="Deactive">
-                        Ngừng kinh doanh
-                    </label>
-                </div>
             </div>
 
             <div *ngIf="products.length > 0">
@@ -74,10 +59,10 @@
                             <td class="align-middle">{{prod.exportPrice}}</td>
                             <td class="align-middle">{{prod.unitName}}</td>
                             <td class="align-middle">{{prod.categoryName}}</td>
-                            <td class="align-middle">{{prod.status}}</td>
+                            <td class="align-middle">{{prod.status == 1 ? "Đang kinh doanh" : "Ngừng kinh doanh"}}</td>
                             <td class="align-middle">{{prod.lastUpdate}}</td>
-                            <td class="align-middle"></td>
-                            <td class="align-middle"></td>
+                            <td class="align-middle"><button class="btn btn-outline-primary" type="button" value="edit">Sửa</button></td>
+                            <td class="align-middle"><button class="btn btn-outline-primary" type="button" value="delete">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>

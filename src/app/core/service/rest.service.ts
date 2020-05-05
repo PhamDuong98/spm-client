@@ -19,4 +19,10 @@ export class RestService {
       .set('pageIndex', pageIndex + '');
     return this.http.get(this.productUrl + 'list-product', { params });
   }
+
+  getProductByBarcode(barcode: string) {
+    const params = new HttpParams()
+      .set('barcode', barcode);
+    return this.http.get(this.productUrl + 'list-product', { params });
+  }
 }

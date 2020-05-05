@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RestService } from '../core/service/rest.service';
 
 @Component({
@@ -10,8 +10,11 @@ export class ListProductComponent implements OnInit {
   length: number;
   pageSize = 10;
   pageIndex = 0;
+  barcode: string;
   pageSizeOptions: number[] = [10, 25, 50, 100, 200];
   products: any[] = new Array();
+  @ViewChild('search') search: ElementRef;
+
 
   constructor(
     private restService: RestService
@@ -19,6 +22,19 @@ export class ListProductComponent implements OnInit {
 
   ngOnInit() {
     this.requestSearch(this.pageSize, this.pageIndex);
+  }
+
+  searchProduct() {
+    this.restService.getProductByBarcode(this.search.nativeElement.value)
+      .toPromise()
+      .then(
+        (res: any) => {
+          this.barcode = res.data.barcode;
+        },
+        (error: any) => {
+          console.log('API error: ', error);
+        }
+      );
   }
 
   onPageEvent(event: any) {
