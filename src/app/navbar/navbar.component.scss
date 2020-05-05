@@ -1,15 +1,12 @@
-nav {
-    margin-bottom: 15px;
+.toolbar {
+    margin-bottom: 10px;
 }
 
-.dropdown-menu {
-    margin-right: 20px;
+.spacer {
+    flex: 1 1 auto;
 }
 
-.navbar-nav .dropdown-menu {
-    left: -100px;
-}
-
-#logout {
-    cursor: pointer;
+.toolbar-content:hover {
+    text-decoration: none;
+    color: white;
 }
