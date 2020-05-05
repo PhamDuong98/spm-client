@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { RestService } from '../core/service/rest.service';
 
 @Component({
@@ -18,11 +16,6 @@ export class ListProductComponent implements OnInit {
   constructor(
     private restService: RestService
   ) { }
-  allProductData: any;
-
-  displayedColumns: string[] = ['No', 'barcode', 'name', 'importPrice', 'exportPrice', 'unit', 'category'];
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
     this.requestSearch(this.pageSize, this.pageIndex);
@@ -44,17 +37,6 @@ export class ListProductComponent implements OnInit {
         },
         (error: any) => {
           console.log('API error: ', error);
-    this.getAllFromApi();
-  }
-
-  getAllFromApi() {
-    this.restService.getAllProduct()
-      .subscribe(
-        (data: any) => {
-          this.allProductData = data.data.allProducts;
-        },
-        (error: any) => {
-          console.log(error);
         }
       );
   }
